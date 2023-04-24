@@ -2,7 +2,7 @@
 
 Team:
 
-* Person 1 - Which microservice?
+* Bradley Allen - Automobile Service
 * Person 2 - Which microservice?
 
 ## Design
