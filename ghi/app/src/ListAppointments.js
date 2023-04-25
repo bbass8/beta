@@ -27,7 +27,6 @@ return (
                 {props.appointments.map(appointment => {
                 let unformattedDate = new Date(appointment.date_time)
                 let date = unformattedDate.toLocaleString();
-                console.log(appointment)
                 if (appointment.status === 'PENDING'){
                 return (
                   <tr key={appointment.vin}>
@@ -45,7 +44,7 @@ return (
                         finish(event, appointment.id)
                       }
                     }}button>Finish</button>
-                    <button style={{backgroundColor: "red"}} onClick={(event) => {
+                    <button style={{margin:"5px",backgroundColor: "red"}} onClick={(event) => {
                       const confirmBox = window.confirm(
                         "Do you really want to cancel this appointment?"
                       )

@@ -82,7 +82,10 @@ def api_technician_detail(request,pk):
     elif request.method == "DELETE":
         try:
             count, _ = Technician.objects.filter(id=pk).delete()
-            return JsonResponse({"deleted": count > 0})
+            if count > 0:
+                return JsonResponse({"deleted": count > 0}, status=200)
+            else:
+                return JsonResponse({"message": "Failure"}, status=400)
         except:
             failure()
 
@@ -141,15 +144,18 @@ def api_appointment_detail(request,pk):
     elif request.method == "DELETE":
         try:
             count, _ = Appointment.objects.filter(id=pk).delete()
-            return JsonResponse({"deleted": count > 0})
+            if count > 0:
+                return JsonResponse({"deleted": count > 0})
+            else:
+                return JsonResponse({"message": "Failure"}, status=400)
         except:
-            failure()
+            return JsonResponse({"message": "failure!"}, status=400)
 @require_http_methods(["PUT"])
 def api_finish_appointment(request, pk):
     try:
         appointment = Appointment.objects.get(id=pk)
         appointment.finish()
-        return JsonResponse({"message": "success!"},status=200)
+        return JsonResponse({"status":appointment.status, "message": "success!"},status=200)
     except:
         failure()
 
@@ -159,7 +165,7 @@ def api_cancel_appointment(request, pk):
     try:
         appointment = Appointment.objects.get(id=pk)
         appointment.cancel()
-        return JsonResponse({"message": "success!"},status=200)
+        return JsonResponse({"status":appointment.status, "message": "success!"},status=200)
     except:
         failure()
 

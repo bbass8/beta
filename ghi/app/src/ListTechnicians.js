@@ -11,8 +11,8 @@ return (
                 </thead>
                 <tbody>
                 {props.technicians.map(tech => {
-                  console.log()
                 return (
+
                   <tr key={tech.first_name}>
                     <td>{tech.first_name}</td>
                     <td>{tech.last_name}</td>

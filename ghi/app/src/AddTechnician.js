@@ -34,8 +34,6 @@ export default function AddTechnician() {
         data.last_name = lastName;
         data.employee_id = employeeId;
 
-        console.log(data);
-
         const locationUrl = 'http://localhost:8080/api/technicians/';
         const fetchConfig = {
             method: "post",
@@ -47,7 +45,6 @@ export default function AddTechnician() {
             const response = await fetch(locationUrl, fetchConfig);
             if (response.ok) {
             const newTech = await response.json();
-            console.log(newTech)
             event.target.reset();
             setFirstName('');
             setLastName('');

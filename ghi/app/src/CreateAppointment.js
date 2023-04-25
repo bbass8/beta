@@ -47,9 +47,6 @@ export default function CreateAppointment() {
         data.date_time = date;
         data.reason = reason;
         data.technician = tech;
-
-        console.log(data);
-
         const locationUrl = 'http://localhost:8080/api/appointments/';
         const fetchConfig = {
             method: "post",
@@ -60,8 +57,6 @@ export default function CreateAppointment() {
             };
             const response = await fetch(locationUrl, fetchConfig);
             if (response.ok) {
-            const newTech = await response.json();
-            console.log(newTech)
             event.target.reset();
             setVin('');
             setCustomer('');
@@ -119,7 +114,7 @@ export default function CreateAppointment() {
                       )
                     })}
               </select>
-              <button className="btn btn-primary">Create</button>
+              <button style={{marginTop:"10px"}} className="btn btn-primary">Create</button>
             </form>
           </div>
         </div>
