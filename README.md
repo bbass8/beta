@@ -2,7 +2,7 @@
 
 Team:
 
-- Benjamin Bass - Sales?
+- Benjamin Bass - Sales
 
 * Bradley Allen - Automobile Service
 
