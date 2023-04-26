@@ -32,7 +32,7 @@ export default function AddTechnician() {
         data.last_name = lastName;
         data.employee_id = employeeId;
 
-        console.log(data);
+
 
         const locationUrl = 'http://localhost:';
         const fetchConfig = {

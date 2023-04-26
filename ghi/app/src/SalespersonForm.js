@@ -27,7 +27,7 @@ function SalesPersonForm() {
         data.last_name = lastName;
 
 
-        console.log(data);
+
 
         const url = "http://localhost:8090/api/salespeople/";
         const fetchConfig = {
