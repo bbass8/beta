@@ -1,9 +1,11 @@
 import {useState, useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
+import { loadTechnicians } from './index';
 
 
 export default function AddTechnician() {
 
-
+    const navigate = useNavigate();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [employeeId, setId] = useState('');
@@ -32,9 +34,7 @@ export default function AddTechnician() {
         data.last_name = lastName;
         data.employee_id = employeeId;
 
-
-
-        const locationUrl = 'http://localhost:';
+        const locationUrl = 'http://localhost:8080/api/technicians/';
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
@@ -45,12 +45,16 @@ export default function AddTechnician() {
             const response = await fetch(locationUrl, fetchConfig);
             if (response.ok) {
             const newTech = await response.json();
-            console.log(newTech)
             event.target.reset();
             setFirstName('');
             setLastName('');
             setId('')
+
             }
+        loadTechnicians();
+        navigate('/technicians');
+
+
     }
 
     return (
@@ -61,15 +65,15 @@ export default function AddTechnician() {
             <form onSubmit={(event) => handleSubmit(event)} id="create-technician-form">
               <div className="form-floating mb-3">
                 <input value={firstName} onChange={handleFirstNameChange} placeholder="First Name" required type="text" name="firstName" id="firstName" className="form-control"/>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">First Name</label>
               </div>
               <div className="form-floating mb-3">
                 <input value={lastName} onChange={handleLastNameChange} placeholder="Last Name" required type="text" name="lastName" id="lastName" className="form-control"/>
-                <label htmlFor="manufacturer">Manufacturer</label>
+                <label htmlFor="manufacturer">Last Name</label>
               </div>
               <div className="form-floating mb-3">
                 <input value={employeeId} onChange={handleIdChange} placeholder="Employee ID" required type="text" name="employeeId" id="employeeId" className="form-control"/>
-                <label htmlFor="color">Color</label>
+                <label htmlFor="color">Employee ID</label>
               </div>
               <button className="btn btn-primary">Create</button>
             </form>
