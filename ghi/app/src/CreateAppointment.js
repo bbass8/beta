@@ -47,6 +47,7 @@ export default function CreateAppointment() {
         data.date_time = date;
         data.reason = reason;
         data.technician = tech;
+        console.log(data)
         const locationUrl = 'http://localhost:8080/api/appointments/';
         const fetchConfig = {
             method: "post",

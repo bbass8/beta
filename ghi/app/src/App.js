@@ -6,6 +6,12 @@ import CreateAppointment from './CreateAppointment'
 import Nav from './Nav';
 import ListAppointments from './ListAppointments';
 import ServiceHistory from './ServiceHistory'
+import ListManufacturers from './ListManufacturers'
+import AddManufacturer from './AddManufacturer'
+import ListModels from './ListModels';
+import AddModel from './AddModel'
+import ListAutomobiles from './ListAutomobiles';
+import AddAutomobile from './AddAutomobile';
 
 function App(props) {
   return (
@@ -23,6 +29,14 @@ function App(props) {
           <Route path="" element={<ListAppointments appointments={props.appointments}/>} />
           <Route path="add/" element={<CreateAppointment />} />
           <Route path="servicehistory/" element={<ServiceHistory />} />
+          </Route>
+          <Route path="inventory/">
+          <Route path="addmanufacturer/" element={<AddManufacturer />} />
+          <Route path="manufacturers/" element={<ListManufacturers />} />
+          <Route path="models/" element={<ListModels />} />
+          <Route path="addmodel/" element={<AddModel />} />
+          <Route path="automobiles/" element={<ListAutomobiles />} />
+          <Route path="addautomobile/" element={<AddAutomobile />} />
           </Route>
         </Routes>
       </div>
