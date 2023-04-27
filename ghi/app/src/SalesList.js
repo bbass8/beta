@@ -14,7 +14,7 @@ function ListSales(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.sales.map(sale => {
+                {props.sales && props.sales.map(sale => {
                     return (
                     <tr key={sale.automobile.vin}>
                         <td>{sale.salesperson.employee_id}</td>

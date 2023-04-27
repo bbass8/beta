@@ -8,6 +8,7 @@ import ListCustomers from './CustomerList';
 import CustomerForm from './CustomerForm';
 import ListSales from './SalesList';
 import SaleForm from './SaleForm';
+import SalesHistory from './SalesHistory';
 
 function App(props) {
   return (
@@ -23,6 +24,7 @@ function App(props) {
           <Route path="addcustomer/" element={<CustomerForm />} />
           <Route path="sales/" element={<ListSales sales={props.sales}/>} />
           <Route path="addsale/" element={<SaleForm />} />
+          <Route path="saleshistory/" element={<SalesHistory salespersons={props.salespersons} sales={props.sales} />} />
         </Routes>
       </div>
     </BrowserRouter>

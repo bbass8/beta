@@ -11,9 +11,9 @@ function ListCustomers(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.customers.map(customer => {
+                {props.customers && props.customers.map(customer => {
                     return (
-                    <tr key={customer.first_name}>
+                    <tr key={customer.id}>
                         <td>{customer.first_name}</td>
                         <td>{customer.last_name}</td>
                         <td>{customer.address}</td>
