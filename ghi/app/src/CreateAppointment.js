@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
-import { loadTechnicians } from './index';
+import { loadData } from './index';
 
 
 export default function CreateAppointment() {
@@ -65,7 +65,7 @@ export default function CreateAppointment() {
             setReason('')
 
             }
-        loadTechnicians();
+        loadData();
         navigate('/appointments');
     }
 

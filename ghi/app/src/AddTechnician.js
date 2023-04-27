@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
-import { loadTechnicians } from './index';
+import { loadData } from './index';
 
 
 export default function AddTechnician() {
@@ -51,7 +51,7 @@ export default function AddTechnician() {
             setId('')
 
             }
-        loadTechnicians();
+        loadData();
         navigate('/technicians');
 
 

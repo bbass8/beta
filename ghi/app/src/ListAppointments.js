@@ -1,13 +1,13 @@
-import { loadTechnicians } from "./index";
+import { loadData } from "./index";
 async function finish(event,id){
   event.preventDefault();
   const response = await fetch(`http://localhost:8080/api/appointments/${id}/finish/`, {method:"put"});
-  loadTechnicians();
+  loadData();
 }
 async function cancel(event,id){
   event.preventDefault();
   const response = await fetch(`http://localhost:8080/api/appointments/${id}/cancel/`, {method:"put"});
-  loadTechnicians();
+  loadData();
 }
 
 function ListAppointments(props){
