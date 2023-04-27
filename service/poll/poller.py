@@ -43,7 +43,7 @@ def poll():
             pollAuto()
         except Exception as e:
             print("Outside error:", e, file=sys.stderr)
-        time.sleep(10)
+        time.sleep(60)
 
 
 if __name__ == "__main__":
