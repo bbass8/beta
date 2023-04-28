@@ -45,12 +45,9 @@ def api_show_salesperson(request, pk):
             return JsonResponse(
                 {"message": "Salesperson does not exist"}
                 )
-
     else:
         count, _ = Salesperson.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count > 0})
-
-
 
 
 @require_http_methods(["GET", "POST"])
@@ -98,7 +95,6 @@ def api_show_customer(request, pk):
         return JsonResponse({"deleted": count > 0})
 
 
-
 @require_http_methods(["GET", "POST"])
 def api_list_sales(request):
     if request.method == "GET":
@@ -107,7 +103,6 @@ def api_list_sales(request):
             {"sales": sales},
             encoder=SaleEncoder
         )
-
     else:
         content = json.loads(request.body)
         try:

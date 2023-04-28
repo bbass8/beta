@@ -17,16 +17,13 @@ function SaleForm() {
     const handleVinChange = (event) => {
         const value = event.target.value;
         let data = JSON.parse(value);
-        console.log(data);
+
         setVin(data.vin);
         setModel(data.model.name);
 
 
 
-        // {value.map((automobile) => {
-        //     setVin(automobile.vin)
-        //     console.log(automobile);
-        // });
+
     }
 
 
@@ -53,7 +50,7 @@ function SaleForm() {
         data.customer = customer;
         data.salesperson = salesperson;
         data.price = parseInt(price);
-        console.log(data);
+
         const url = 'http://localhost:8090/api/sales/';
         const fetchConfig = {
             method: 'post',
@@ -67,6 +64,8 @@ function SaleForm() {
             const newSale = await response.json();
             event.target.reset();
         }
+        setPrice('');
+
     };
 
     const fetchAutomobileData = async () => {

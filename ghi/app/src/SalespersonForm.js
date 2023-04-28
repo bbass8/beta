@@ -42,6 +42,12 @@ function SalesPersonForm() {
           const newSalesPerson = await response.json();
           event.target.reset();
         }
+
+
+        setFirstName('');
+        setLastName('');
+        setEmployeeId('');
+
       };
 
       return (

@@ -43,7 +43,7 @@ function SalesHistory(props) {
             </thead>
             <tbody>
                 {SalesHistory && SalesHistory.map(employeeSale => {
-                  console.log(employeeSale);
+
                     return (
                     <tr key={employeeSale.id}>
                         <td>{employeeSale.salesperson.first_name} {employeeSale.salesperson.last_name}</td>
