@@ -47,6 +47,11 @@ function CustomerForm() {
         const newCustomer = await response.json();
         event.target.reset();
     }
+
+    setFirstName('');
+    setLastName('');
+    setAddress('');
+    setPhoneNumber('');
 };
 
 return (

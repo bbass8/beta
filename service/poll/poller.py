@@ -1,3 +1,4 @@
+from service_rest.models import AutomobileVO
 import django
 import os
 import sys
@@ -9,11 +10,10 @@ sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "service_project.settings")
 django.setup()
 
-from service_rest.models import AutomobileVO
-
 
 def pollAuto():
-    response = requests.get("http://project-beta-inventory-api-1:8000/api/automobiles/")
+    response = requests.get(
+        "http://project-beta-inventory-api-1:8000/api/automobiles/")
     content = json.loads(response.content)
     for car in content["autos"]:
         try:
