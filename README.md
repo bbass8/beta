@@ -14,5 +14,4 @@ The models that I created represent all the valuable data necessary for eventual
 
 ## Sales microservice
 
-Explain your models and integration with the inventory
-microservice, here.
+I have created a Technician, Appointment and AutomobileVO to accurately retrieve data from the inventory, as well as keep track of any technicians or appointments that are needed.  The AutomobileVO is polled from the inventory to keep an updated account of all vehicle VINs that are added to the inventory. This VO is then used to help facilitate the needs of CarCar.
