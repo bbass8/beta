@@ -31,51 +31,52 @@ function ListAppointments(props) {
         </tr>
       </thead>
       <tbody>
-        {props.appointments.map((appointment) => {
-          let unformattedDate = new Date(appointment.date_time);
-          let date = unformattedDate.toLocaleString();
-          if (appointment.status === "PENDING") {
-            return (
-              <tr key={appointment.vin}>
-                <td>{appointment.vin}</td>
-                <td>{appointment.vip ? "Yes" : "No"}</td>
-                <td>{appointment.customer}</td>
-                <td>{date}</td>
-                <td>{appointment.reason}</td>
-                <td>{appointment.technician.first_name}</td>
-                <td>
-                  <button
-                    style={{ backgroundColor: "lightgreen" }}
-                    onClick={(event) => {
-                      const confirmBox = window.confirm(
-                        "Do you really want to finish this appointment?"
-                      );
-                      if (confirmBox === true) {
-                        finish(event, appointment.id);
-                      }
-                    }}
-                    button
-                  >
-                    Finish
-                  </button>
-                  <button
-                    style={{ margin: "5px", backgroundColor: "red" }}
-                    onClick={(event) => {
-                      const confirmBox = window.confirm(
-                        "Do you really want to cancel this appointment?"
-                      );
-                      if (confirmBox === true) {
-                        cancel(event, appointment.id);
-                      }
-                    }}
-                  >
-                    Cancel
-                  </button>
-                </td>
-              </tr>
-            );
-          }
-        })}
+        {props.appointments &&
+          props.appointments.map((appointment) => {
+            let unformattedDate = new Date(appointment.date_time);
+            let date = unformattedDate.toLocaleString();
+            if (appointment.status === "PENDING") {
+              return (
+                <tr key={appointment.vin}>
+                  <td>{appointment.vin}</td>
+                  <td>{appointment.vip ? "Yes" : "No"}</td>
+                  <td>{appointment.customer}</td>
+                  <td>{date}</td>
+                  <td>{appointment.reason}</td>
+                  <td>{appointment.technician.first_name}</td>
+                  <td>
+                    <button
+                      style={{ backgroundColor: "lightgreen" }}
+                      onClick={(event) => {
+                        const confirmBox = window.confirm(
+                          "Do you really want to finish this appointment?"
+                        );
+                        if (confirmBox === true) {
+                          finish(event, appointment.id);
+                        }
+                      }}
+                      button
+                    >
+                      Finish
+                    </button>
+                    <button
+                      style={{ margin: "5px", backgroundColor: "red" }}
+                      onClick={(event) => {
+                        const confirmBox = window.confirm(
+                          "Do you really want to cancel this appointment?"
+                        );
+                        if (confirmBox === true) {
+                          cancel(event, appointment.id);
+                        }
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </td>
+                </tr>
+              );
+            }
+          })}
       </tbody>
     </table>
   );

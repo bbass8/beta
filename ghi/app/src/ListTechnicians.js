@@ -9,15 +9,16 @@ function ListTechnicians(props) {
         </tr>
       </thead>
       <tbody>
-        {props.technicians.map((tech) => {
-          return (
-            <tr key={tech.first_name}>
-              <td>{tech.first_name}</td>
-              <td>{tech.last_name}</td>
-              <td>{tech.employee_id}</td>
-            </tr>
-          );
-        })}
+        {props.technicians &&
+          props.technicians.map((tech) => {
+            return (
+              <tr key={tech.first_name}>
+                <td>{tech.first_name}</td>
+                <td>{tech.last_name}</td>
+                <td>{tech.employee_id}</td>
+              </tr>
+            );
+          })}
       </tbody>
     </table>
   );

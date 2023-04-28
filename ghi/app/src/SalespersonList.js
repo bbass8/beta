@@ -10,7 +10,7 @@ function ListSalesPeople(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.salespersons.map(salesperson => {
+                {props.salespersons && props.salespersons.map(salesperson => {
                     return (
                     <tr key={salesperson.first_name}>
                         <td>{salesperson.employee_id}</td>
