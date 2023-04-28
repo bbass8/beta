@@ -1,23 +1,19 @@
 import { useEffect, useState } from "react";
 
-export async function loadManufacturers(){
-  const responseManufacturers = await fetch('http://localhost:8100/api/manufacturers/');
-  if (responseManufacturers.ok){
-      const dataManufacturers = await responseManufacturers.json();
-      let manufacturers= dataManufacturers.manufacturers
-      return manufacturers
-  }
-  else {
+export async function loadManufacturers() {
+  const responseManufacturers = await fetch(
+    "http://localhost:8100/api/manufacturers/"
+  );
+  if (responseManufacturers.ok) {
+    const dataManufacturers = await responseManufacturers.json();
+    let manufacturers = dataManufacturers.manufacturers;
+    return manufacturers;
+  } else {
     console.error(responseManufacturers);
   }
 }
 
-
-
-
-
-function ListManufacturers(){
-
+function ListManufacturers() {
   const [manufacturers, setManufacturers] = useState([]);
 
   useEffect(() => {
@@ -28,27 +24,24 @@ function ListManufacturers(){
     fetchData();
   }, []);
 
-return (
+  return (
     <table className="table table-striped">
-                <thead>
-                <tr>
-                    <th>Manufacturer Name</th>
+      <thead>
+        <tr>
+          <th>Manufacturer Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {manufacturers.map((manufacturer) => {
+          return (
+            <tr key={manufacturer.name}>
+              <td>{manufacturer.name}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+}
 
-                </tr>
-                </thead>
-                <tbody>
-                {manufacturers.map(manufacturer => {
-                return (
-
-                  <tr key={manufacturer.name}>
-                    <td>{manufacturer.name}</td>
-
-                  </tr>
-                     );
-              })}
-                </tbody>
-            </table>
-        );
-        }
-
-    export default ListManufacturers
+export default ListManufacturers;

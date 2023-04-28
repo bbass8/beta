@@ -1,5 +1,4 @@
 
-from django.contrib import admin
 from django.urls import path
 from .views import (api_technicians,
                     api_technician_detail,
@@ -16,35 +15,35 @@ urlpatterns = [
         api_technicians,
         name="api_technicians",
     ),
-        path(
+    path(
         "technicians/<int:pk>/",
         api_technician_detail,
         name="show_tech_detail",
     ),
 
-        path(
+    path(
         "appointments/",
         api_appointments,
         name="api_appointments",
     ),
 
-        path(
+    path(
         "appointments/<int:pk>/",
         api_appointment_detail,
         name="show_appointment_detail",
     ),
-        path(
+    path(
         "appointments/vin/<str:pk>/",
         api_search_vin,
         name="api_search_vin",
     ),
 
-        path(
+    path(
         "appointments/<int:pk>/finish/",
         api_finish_appointment,
         name="api_finish_appointment",
     ),
-            path(
+    path(
         "appointments/<int:pk>/cancel/",
         api_cancel_appointment,
         name="api_cancel_appointment",
