@@ -44,7 +44,7 @@ def api_show_salesperson(request, pk):
         except Salesperson.DoesNotExist:
             return JsonResponse(
                 {"message": "Salesperson does not exist"}
-                )
+            )
     else:
         count, _ = Salesperson.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count > 0})
@@ -88,7 +88,7 @@ def api_show_customer(request, pk):
         except Customer.DoesNotExist:
             return JsonResponse(
                 {"message": "Customer does not exist"}
-                )
+            )
 
     else:
         count, _ = Customer.objects.filter(id=pk).delete()
@@ -154,4 +154,4 @@ def api_show_sale(request, pk):
         return JsonResponse(
             {"Error": "Sale could not be found"},
             status=400
-            )
+        )

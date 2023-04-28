@@ -1,60 +1,58 @@
 import React, { useState } from "react";
 
 function CustomerForm() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [address, setAddress] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState(0);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(0);
 
-    const handleFirstNameChange = (event) => {
-        const value = event.target.value;
-        setFirstName(value);
-    };
-    const handleLastNameChange = (event) => {
-        const value = event.target.value;
-        setLastName(value);
-    };
-    const handleAddressChange = (event) => {
-        const value = event.target.value;
-        setAddress(value);
-    };
-    const handlePhoneNumberChange = (event) => {
-        const value = event.target.value;
-        setPhoneNumber(value);
-    };
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+  const handleFirstNameChange = (event) => {
+    const value = event.target.value;
+    setFirstName(value);
+  };
+  const handleLastNameChange = (event) => {
+    const value = event.target.value;
+    setLastName(value);
+  };
+  const handleAddressChange = (event) => {
+    const value = event.target.value;
+    setAddress(value);
+  };
+  const handlePhoneNumberChange = (event) => {
+    const value = event.target.value;
+    setPhoneNumber(value);
+  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-        const data = {};
+    const data = {};
 
-        data.first_name = firstName;
-        data.last_name = lastName;
-        data.address = address;
-        data.phone_number = phoneNumber;
+    data.first_name = firstName;
+    data.last_name = lastName;
+    data.address = address;
+    data.phone_number = phoneNumber;
 
-
-
-        const url = "http://localhost:8090/api/customers/";
-        const fetchConfig = {
-            method: "post",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-        },
+    const url = "http://localhost:8090/api/customers/";
+    const fetchConfig = {
+      method: "post",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
     };
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
-        const newCustomer = await response.json();
-        event.target.reset();
+      const newCustomer = await response.json();
+      event.target.reset();
     }
 
-    setFirstName('');
-    setLastName('');
-    setAddress('');
-    setPhoneNumber('');
-};
+    setFirstName("");
+    setLastName("");
+    setAddress("");
+    setPhoneNumber("");
+  };
 
-return (
+  return (
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
